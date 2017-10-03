@@ -28,4 +28,8 @@ public class CalculatorTest {
   public void testNewLineDelim() {
     assertEquals(5, Calculator.add("2\n2,1"));
   }
+  @Test
+  public void testNewLineOnly() {
+    assertEquals(4, Calculator.add("2\n2"));
+  }
 }
