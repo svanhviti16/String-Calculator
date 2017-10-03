@@ -24,4 +24,8 @@ public class CalculatorTest {
   public void testTenNumbers() {
     assertEquals(15, Calculator.add("2,2,2,2,2,1,1,1,1,1"));
   }
+  @Test
+  public void testNewLineDelim() {
+    assertEquals(5, Calculator.add("2\n2,1"));
+  }
 }
