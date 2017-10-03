@@ -10,7 +10,7 @@ public class CalculatorTest {
   }
   @Test
   public void testOneNumber() {
-    assertEquals(1, Calculator.add("5"));
+    assertEquals(77, Calculator.add("77"));
   }
   @Test
   public void testTwoNumbers() {

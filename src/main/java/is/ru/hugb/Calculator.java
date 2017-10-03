@@ -11,11 +11,13 @@ public class Calculator {
       String numbers[] = text.split(",");
       return sum(numbers);
     }
-    return 1;
+    else {
+      return toInt(text);
+    }
   }
 
   //returns the string as an integer
-  private static int parse(String text) {
+  private static int toInt(String text) {
     return Integer.parseInt(text);
   }
 
@@ -23,7 +25,7 @@ public class Calculator {
   private static int sum(String[] numbers) {
     int total = 0;
     for (String n : numbers) {
-      total += parse(n);
+      total += toInt(n);
     }
     return total;
   }
