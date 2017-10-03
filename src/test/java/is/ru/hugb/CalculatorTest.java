@@ -32,4 +32,8 @@ public class CalculatorTest {
   public void testNewLineOnly() {
     assertEquals(4, Calculator.add("2\n2"));
   }
+  @Test
+  public void testDifferentDelimOrder() {
+    assertEquals(12, Calculator.add("2,6,1\n1\n1,1"));
+  }
 }
