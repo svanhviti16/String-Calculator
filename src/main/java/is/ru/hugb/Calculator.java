@@ -3,17 +3,21 @@ package is.ru.hugb;
 public class Calculator {
 
   //adds the numbers of a given string
-  public static int add(String text) {
+  public static int add(String text) throws IllegalArgumentException {
     if(text.equals("")) {
       return 0;
     }
-    else if(text.contains(",") || text.contains("\n")) {
-      String numbers[] = text.split(",|\\n");
-      return sum(numbers);
+    //else if(text.contains(",") || text.contains("\n")) {
+    String numbers[] = text.split(",|\\n");
+
+    for (String n : numbers) {
+      if (toInt(n) < 0) {
+
+        throw new IllegalArgumentException("Negatives not allowed: " + n);
+      }
     }
-    else {
-      return toInt(text);
-    }
+
+    return sum(numbers);
   }
 
   //returns the string as an integer
