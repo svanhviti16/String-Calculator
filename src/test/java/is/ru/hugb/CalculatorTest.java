@@ -81,4 +81,8 @@ public class CalculatorTest {
   public void testOverThousandAndLegalNumber() throws IllegalArgumentException {
     assertEquals(1, Calculator.add("1,2000"));
   }
+  @Test
+  public void testMultipleOverThousand() throws IllegalArgumentException {
+    assertEquals(0, Calculator.add("1337,4444,2000"));
+  }
 }
