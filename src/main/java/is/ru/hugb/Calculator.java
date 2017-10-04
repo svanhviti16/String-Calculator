@@ -20,6 +20,7 @@ public class Calculator {
       }
     }
     if (result.length() != 0) {
+      throwNegativeException(result);
       result.deleteCharAt(result.length() - 2);
       throw new IllegalArgumentException("Negatives not allowed: " + result);
     }
@@ -40,4 +41,10 @@ public class Calculator {
     }
     return total;
   }
+
+  private static void throwNegativeException(StringBuilder result) {
+    result.deleteCharAt(result.length() - 2);
+    throw new IllegalArgumentException("Negatives not allowed: " + result);
+  }
+
 }
