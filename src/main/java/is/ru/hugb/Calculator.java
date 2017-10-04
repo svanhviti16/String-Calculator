@@ -16,13 +16,14 @@ public class Calculator {
     for (String n : numbers) {
       if (toInt(n) < 0) {
         //StringBuilder s = "";
-        result.append(n);
+        result.append(", " + n);
+        result.deleteCharAt(0);
       }
     }
     if (result.length() != 0) {
-      throw new IllegalArgumentException("Negatives not allowed: " + result);
+      throw new IllegalArgumentException("Negatives not allowed: " + result +", ");
     }
-
+    //this works for 1 and more numbers
     return sum(numbers);
   }
 
