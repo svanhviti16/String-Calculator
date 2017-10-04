@@ -49,4 +49,16 @@ public class CalculatorTest {
     }
     assertTrue(thrown);
   }
+  @Test()
+  public void testMultipleNegativeNum() {
+    boolean thrown = false;
+    try {
+      Calculator.add("-2,-2,-2");
+    }
+    catch (IllegalArgumentException e) {
+      System.out.println(e.getMessage());
+      thrown = true;
+    }
+    assertTrue(thrown);
+  }
 }

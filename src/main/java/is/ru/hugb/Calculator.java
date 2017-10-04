@@ -1,5 +1,8 @@
 package is.ru.hugb;
 
+import java.util.ArrayList;
+import java.lang.StringBuilder;
+
 public class Calculator {
 
   //adds the numbers of a given string
@@ -9,12 +12,15 @@ public class Calculator {
     }
     //else if(text.contains(",") || text.contains("\n")) {
     String numbers[] = text.split(",|\\n");
-
+    StringBuilder result = new StringBuilder();
     for (String n : numbers) {
       if (toInt(n) < 0) {
-
-        throw new IllegalArgumentException("Negatives not allowed: " + n);
+        //StringBuilder s = "";
+        result.append(n);
       }
+    }
+    if (result.length() != 0) {
+      throw new IllegalArgumentException("Negatives not allowed: " + result);
     }
 
     return sum(numbers);
