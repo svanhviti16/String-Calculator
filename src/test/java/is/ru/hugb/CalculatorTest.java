@@ -61,4 +61,16 @@ public class CalculatorTest {
     }
     assertTrue(thrown);
   }
+  @Test()
+  public void testBothPosAndNeg() {
+    boolean thrown = false;
+    try {
+      Calculator.add("-2,2,-2,4");
+    }
+    catch (IllegalArgumentException e) {
+      System.out.println(e.getMessage());
+      thrown = true;
+    }
+    assertTrue(thrown);
+  }
 }
