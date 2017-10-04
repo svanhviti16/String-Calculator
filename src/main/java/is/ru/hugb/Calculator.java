@@ -10,21 +10,20 @@ public class Calculator {
     if(text.equals("")) {
       return 0;
     }
-    //else if(text.contains(",") || text.contains("\n")) {
     String numbers[] = text.split(",|\\n");
+
     StringBuilder result = new StringBuilder();
     for (String n : numbers) {
-      if (toInt(n) < 0) {
-        //StringBuilder s = "";
-        result.append(n + ", ");
+      if(toInt(n) < 1000) {
+        if (toInt(n) < 0) {
+          result.append(n + ", ");
+        }
       }
     }
     if (result.length() != 0) {
       throwNegativeException(result);
-      result.deleteCharAt(result.length() - 2);
-      throw new IllegalArgumentException("Negatives not allowed: " + result);
     }
-    //this works for 1 and more numbers
+    //this works for 1 numbers and up
     return sum(numbers);
   }
 
@@ -37,12 +36,14 @@ public class Calculator {
   private static int sum(String[] numbers) {
     int total = 0;
     for (String n : numbers) {
-      total += toInt(n);
+      if(toInt(n) < 1000) {
+        total += toInt(n);
+      }
     }
     return total;
   }
 
-  private static void throwNegativeException(StringBuilder result) {
+  private static void throwNegativeException(StringBuilder result) throws IllegalArgumentException {
     result.deleteCharAt(result.length() - 2);
     throw new IllegalArgumentException("Negatives not allowed: " + result);
   }

@@ -73,4 +73,8 @@ public class CalculatorTest {
     }
     assertTrue(thrown);
   }
+  @Test
+  public void testOverThousand() throws IllegalArgumentException {
+    assertEquals(0, Calculator.add("2000"));
+  }
 }
