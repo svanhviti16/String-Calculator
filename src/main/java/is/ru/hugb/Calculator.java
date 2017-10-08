@@ -3,6 +3,7 @@ package is.ru.hugb;
 import java.util.ArrayList;
 import java.lang.StringBuilder;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Calculator {
 
@@ -15,6 +16,8 @@ public class Calculator {
 
     if (text.startsWith("//")) {
       delim = text.substring(2, 3);
+      //escaping a possible regex character
+      delim = Pattern.quote(delim);
       text = text.substring(4);
     }
     String numbers[] = text.split(delim);

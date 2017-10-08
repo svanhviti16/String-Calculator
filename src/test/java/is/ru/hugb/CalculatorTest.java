@@ -93,4 +93,8 @@ public class CalculatorTest {
   public void testAnotherDelim() throws IllegalArgumentException {
     assertEquals(120, Calculator.add("//&\n90&30"));
   }
+  @Test
+  public void testPipeAsDelim() throws IllegalArgumentException {
+    assertEquals(120, Calculator.add("//|\n90|30"));
+  }
 }
