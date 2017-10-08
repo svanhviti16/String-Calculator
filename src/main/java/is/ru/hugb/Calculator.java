@@ -6,12 +6,11 @@ import java.util.Scanner;
 
 public class Calculator {
 
-  //adds the numbers of a given string
+  //adds the numbers of a given string and returns the sum
   public static int add(String text) throws IllegalArgumentException {
     if(text.equals("")) {
       return 0;
     }
-
     String delim = ",|\\n";
 
     if (text.startsWith("//")) {
@@ -20,20 +19,8 @@ public class Calculator {
     }
     String numbers[] = text.split(delim);
 
-  //  text.useDelimiter();
+    checkNegatives(numbers);
 
-    //String numbers[] = text.split(",|\\n");
-
-
-    StringBuilder result = new StringBuilder();
-    for (String n : numbers) {
-      if (toInt(n) < 0) {
-        result.append(n + ", ");
-      }
-    }
-    if (result.length() != 0) {
-      throwNegativeException(result);
-    }
     //this works for 1 numbers and up
     return sum(numbers);
   }
@@ -47,6 +34,7 @@ public class Calculator {
   private static int sum(String[] numbers) {
     int total = 0;
     for (String n : numbers) {
+      //numbers over 1000 are ignored
       if(toInt(n) < 1000) {
         total += toInt(n);
       }
@@ -54,9 +42,16 @@ public class Calculator {
     return total;
   }
 
-  private static void throwNegativeException(StringBuilder result) throws IllegalArgumentException {
-    result.deleteCharAt(result.length() - 2);
-    throw new IllegalArgumentException("Negatives not allowed: " + result);
+  private static void checkNegatives(String[] numbersArr) throws IllegalArgumentException {
+    StringBuilder negativeNumbers = new StringBuilder();
+    for (String n : numbersArr) {
+      if (toInt(n) < 0) {
+        negativeNumbers.append(n + ", ");
+      }
+    }
+    if (negativeNumbers.length() != 0) {
+      negativeNumbers.deleteCharAt(negativeNumbers.length() - 2);
+      throw new IllegalArgumentException("Negatives not allowed: " + negativeNumbers);
+    }
   }
-
 }

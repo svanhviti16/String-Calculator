@@ -89,4 +89,8 @@ public class CalculatorTest {
   public void testCustomDelim() throws IllegalArgumentException {
     assertEquals(5, Calculator.add("//;\n2;3"));
   }
+  @Test
+  public void testAnotherDelim() throws IllegalArgumentException {
+    assertEquals(120, Calculator.add("//&\n90&30"));
+  }
 }
