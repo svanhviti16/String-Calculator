@@ -85,4 +85,8 @@ public class CalculatorTest {
   public void testMultipleOverThousand() throws IllegalArgumentException {
     assertEquals(0, Calculator.add("1337,4444,2000"));
   }
+  @Test
+  public void testCustomDelim() throws IllegalArgumentException {
+    assertEquals(5, Calculator.add("//;\n2;3"));
+  }
 }

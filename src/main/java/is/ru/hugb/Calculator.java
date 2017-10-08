@@ -2,6 +2,7 @@ package is.ru.hugb;
 
 import java.util.ArrayList;
 import java.lang.StringBuilder;
+import java.util.Scanner;
 
 public class Calculator {
 
@@ -10,14 +11,24 @@ public class Calculator {
     if(text.equals("")) {
       return 0;
     }
-    String numbers[] = text.split(",|\\n");
+
+    String delim = ",|\\n";
+
+    if (text.startsWith("//")) {
+      delim = text.substring(2, 3);
+      text = text.substring(4);
+    }
+    String numbers[] = text.split(delim);
+
+  //  text.useDelimiter();
+
+    //String numbers[] = text.split(",|\\n");
+
 
     StringBuilder result = new StringBuilder();
     for (String n : numbers) {
-      if(toInt(n) < 1000) {
-        if (toInt(n) < 0) {
-          result.append(n + ", ");
-        }
+      if (toInt(n) < 0) {
+        result.append(n + ", ");
       }
     }
     if (result.length() != 0) {
