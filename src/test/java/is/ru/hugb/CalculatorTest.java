@@ -105,4 +105,8 @@ public class CalculatorTest {
   public void testTwoSymbolsAsDelim() throws IllegalArgumentException {
     assertEquals(120, Calculator.add("//..\n90..30"));
   }
+  @Test
+  public void testThreeSymbolsAsDelim() throws IllegalArgumentException {
+    assertEquals(120, Calculator.add("//!!!\n90!!!30"));
+  }
 }
