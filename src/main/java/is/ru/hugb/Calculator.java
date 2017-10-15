@@ -15,10 +15,10 @@ public class Calculator {
     String delim = ",|\\n";
 
     if (text.startsWith("//")) {
-      delim = text.substring(2, 3);
+      delim = text.substring(2, text.indexOf("\n"));
       //escaping a possible regex character
       delim = Pattern.quote(delim);
-      text = text.substring(4);
+      text = text.substring(text.indexOf("\n")+1);
     }
     String numbers[] = text.split(delim);
 
